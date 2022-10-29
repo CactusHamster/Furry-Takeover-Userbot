@@ -1,7 +1,7 @@
 module.exports = {
     "token": process.env.token,
     "token is bot token": false,
-    "target guild id": "3904872594876",
+    "target guild id": "",
     "audit log reason": "furry takeover",
     "autosave interval": 3 * 60 * 1000, // 180000 ms, or 3 minutes
     "profile pictures": [
