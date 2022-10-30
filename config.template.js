@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     "token": process.env.token,
     "token is bot token": false,
     "target guild id": "",

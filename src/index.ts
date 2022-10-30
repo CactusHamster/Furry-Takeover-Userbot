@@ -1,3 +1,4 @@
+/* Useless for now :c */
 interface ConfigFileExport {
     "token": string,
     "token is bot token": boolean,
@@ -8,14 +9,7 @@ interface ConfigFileExport {
     "save to": string,
 }
 let exists = (value) => value !== null && value !== undefined
-let CONFIG;
-
-// Define config
-{
-    let configPath = PATH.join(process.cwd(), "config.js")
-    if (configPath) CONFIG = eval(fs.readFileSync(configPath).toString());
-    else throw new Error("Could not find file config.js.")
-}
+import CONFIG from "../config.js"
 
 const token = CONFIG["token"]
 const target_guild_id = CONFIG["target guild id"]
@@ -37,7 +31,7 @@ import { FormData } from "formdata-node"
 import { RequestInit } from "node-fetch";
 import { EventEmitter } from "node:events";
 import { Opcodes, GatewayIntentBits, GatewayStatus } from "./enums.js";
-import { Channel, Webhook, Embed, Attachment, MessageCreate, Ready, Guild, WebhookTypes, ChannelTypes, AllowedMentions, MessageComponent, User, Member, MemberUpdate, MemberCreated, MemberRemoved, LoginOptions, CreateWebhookOptions, WebhookSendOptions, MessageTypes } from "./interfaces.js";
+import { Channel, Webhook, Attachment, MessageCreate, Ready, Guild, WebhookTypes, ChannelTypes, AllowedMentions, MessageComponent, User, Member, MemberUpdate, MemberCreated, MemberRemoved, LoginOptions, CreateWebhookOptions, WebhookSendOptions, MessageTypes } from "./interfaces.js";
 import * as fs from "node:fs"
 import generateName from "./names.js";
 

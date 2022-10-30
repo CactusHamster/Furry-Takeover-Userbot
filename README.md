@@ -11,12 +11,12 @@ cp config.template.js config.js # Create a configuration file from the template.
 ```
 ---
 ## Configuration
-Please create/edit a config.js file to provide necessary settings to the userbot.
+Please create/edit the config.js file to provide necessary settings to your userbot.
 
 ### Default configuration:
 ```js
 // config.js
-module.exports = {
+export default {
     "token": process.env.token,
     "token is bot token": false,
     "target guild id": "unset",
