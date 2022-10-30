@@ -8,7 +8,9 @@ interface ConfigFileExport {
     "save to": string,
 }
 let exists = (value) => value !== null && value !== undefined
-const CONFIG: ConfigFileExport = require("../config.js")
+let CONFIG;
+if (fs.existsSync("../config.js")) CONFIG = eval(fs.readFileSync(PATH.join(process.cwd(), "config.js")).toString());
+else throw new Error("Could not find file config.js.")
 const token = CONFIG["token"]
 const target_guild_id = CONFIG["target guild id"]
 const auditLogReason = CONFIG["audit log reason"] ?? "furry takeover"
