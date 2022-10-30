@@ -9,8 +9,14 @@ interface ConfigFileExport {
 }
 let exists = (value) => value !== null && value !== undefined
 let CONFIG;
-if (fs.existsSync("../config.js")) CONFIG = eval(fs.readFileSync(PATH.join(process.cwd(), "config.js")).toString());
-else throw new Error("Could not find file config.js.")
+
+// Define config
+{
+    let configPath = PATH.join(process.cwd(), "config.js")
+    if (configPath) CONFIG = eval(fs.readFileSync(configPath).toString());
+    else throw new Error("Could not find file config.js.")
+}
+
 const token = CONFIG["token"]
 const target_guild_id = CONFIG["target guild id"]
 const auditLogReason = CONFIG["audit log reason"] ?? "furry takeover"
