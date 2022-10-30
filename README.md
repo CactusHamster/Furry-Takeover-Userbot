@@ -35,3 +35,4 @@ Sending a message in the target Discord server (can be from any user) will trigg
 npm run build # Compile source to Javascript.
 npm start # Start the userbot from compiled Javascript.
 ```
+![usage example gif](assets/example.gif?raw=true "much more creative than nuking")
