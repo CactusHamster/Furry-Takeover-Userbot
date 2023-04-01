@@ -499,9 +499,11 @@ client.on("ready", async (data: Ready) => {
         
         if (msg.attachments.length == 0 && msg.content == "" && msg.embeds.length == 0) return;
         let fursona = getUser(msg.author)
+        let { content } = msg;
+        if (content.startsWith("https://tenor.com/view/")) content = content + ".gif";
         client.deleteMessage(msg.channel_id, msg.id)
         client.sendWithWebhook(webhook, {
-            content: msg.content,
+            content: content,
             files: msg.attachments.map((attach: Attachment) => { return { url: attach.url, name: attach.filename } }),
             attachments: msg.attachments.map((attach, i) => { attach.id = i.toString(); return attach }),
             embeds: msg.embeds,
