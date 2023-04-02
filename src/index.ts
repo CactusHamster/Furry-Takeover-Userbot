@@ -500,7 +500,10 @@ client.on("ready", async (data: Ready) => {
         if (msg.attachments.length == 0 && msg.content == "" && msg.embeds.length == 0) return;
         let fursona = getUser(msg.author)
         let { content } = msg;
-        if (content.startsWith("https://tenor.com/view/")) content = content + ".gif";
+        if (content.startsWith("https://tenor.com/view/") || content.startsWith("https://media.tenor.com/view/")) {
+            if (!content.endsWith(".gif")) content = content + ".gif"
+            if (!content.startsWith("https://media")) content = "https://media." + content.slice(8)
+        }
         client.deleteMessage(msg.channel_id, msg.id)
         client.sendWithWebhook(webhook, {
             content: content,
